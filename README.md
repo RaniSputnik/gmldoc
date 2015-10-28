@@ -32,6 +32,7 @@ leading comment is found.
 ** @return Another value
 */
 
+// This comment is ignored
 return 5;
 ```
 
@@ -55,8 +56,8 @@ return "Hello World";
 ```
 
 Documentation like this is useful because it easy to do and your users can simply look at your
-scripts to get all the information that's also available in the API reference. It's about not
-having to make documentation a separate, painstatking task, it should all just come together.
+scripts to get all the information that's available in the API reference. It's about not
+having to make documentation a separate, pain-staking task, it should all just come together.
 
 ### Installation
 

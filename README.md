@@ -17,10 +17,10 @@ return argument0 + argument1
 
 Each script has four components;
 
-- *Usage* eg. my_cool_script(arg0,arg1)
-- *Description* eg. Simply adds the two arguments together.
-- *Parameters* in the format <name> <description> eg. arg0 The first argument to the function
-- *Return Statement* eg. An awesome value that you probably want to deal with
+- **Usage** eg. my_cool_script(arg0,arg1)
+- **Description** eg. Simply adds the two arguments together.
+- **Parameters** in the format <name> <description> eg. arg0 The first argument to the function
+- **Return Statement** eg. An awesome value that you probably want to deal with
 
 You can comment any way you like, the tool will stop reading your comments once a break in
 leading comment is found.

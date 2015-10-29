@@ -31,6 +31,7 @@
                 <h3>Syntax</h3>
                 <pre>{{ method.syntax }}</pre>
 
+                {% if method.params|length > 0 %}
                 <table>
                     <tbody>
                         <tr>
@@ -45,6 +46,7 @@
                         {% endfor %}
                     </tbody>
                 </table>
+                {% endif %}
 
                 {% if method.return_value is defined %}
                 <p><strong>Returns:</strong> {{ method.return_value }}</p>

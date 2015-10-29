@@ -10,6 +10,11 @@ METHOD_TEMPLATE = JINJA_ENV.get_template('layout.html')
 TYPE_REAL = 'real'
 TYPE_STRING = 'string'
 
+class Extension():
+	def __init__(self, name, description):
+		self.name = name
+		self.description = description
+
 # Represents a method in the source code
 class Method():
     def __init__(self, name, syntax):
@@ -99,6 +104,9 @@ def doc(project_file, outdir):
 	# TODO normalize outdir - remove trailing /
 	# and remove any leading dots and / 
 
+	# TODO create a proper extension
+	extension = Extension('TODO Title','TODO Description')
+
 	# Read the contents of the project file
 	print("Reading project file...");
 	project_dir = os.path.dirname(project_file)
@@ -151,6 +159,7 @@ def doc(project_file, outdir):
 	for method in project_methods:
 		print("Rendering file %s", method.name)
 		render_params = {
+			'extension': extension,
 			'method': method,
 			'all_methods': project_methods,
 			'path': outdir,

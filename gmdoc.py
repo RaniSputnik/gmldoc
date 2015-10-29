@@ -150,7 +150,14 @@ def doc(project_file, outdir):
 		os.makedirs(outdir)
 	for method in project_methods:
 		print("Rendering file %s", method.name)
-		the_html = METHOD_TEMPLATE.render(method=method, all_methods=project_methods, path=outdir)
+		render_params = {
+			'method': method,
+			'all_methods': project_methods,
+			'path': outdir,
+			# Uncomment these lines when testing locally
+			# 'stylesheet_url': '../styles/all.css',
+		}
+		the_html = METHOD_TEMPLATE.render(render_params)
 		text_file = open(os.path.join(outdir,method.name + '.html'), "w")
 		text_file.write(the_html)
 		text_file.close()

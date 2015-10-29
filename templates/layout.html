@@ -4,14 +4,18 @@
     <title>{{ method.name }}</title>
     
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
-    <link href='../styles/all.css' rel='stylesheet' type='text/css'>
+    {% if stylesheet_url is defined %}
+    <link href='{{ stylesheet_url }}' rel='stylesheet' type='text/css'>
+    {% else %}
+    <link href='https://storage.googleapis.com/static.gmldoc.com/read/css/all.min.css' rel='stylesheet' type='text/css'>
+    {% endif %}
 </head>
 <body>
     <div class="container">
         <div class="three columns">
             <ul class="links">
                 {% for this_method in all_methods %}
-                <li><a {% if this_method == method %}class="selected"{% endif %} href="{{ path }}/{{ this_method.name }}.html">
+                <li><a {% if this_method == method %}class="selected"{% endif %} href="./{{ this_method.name }}.html">
                     {{ this_method.name }}
                 </a></li>
                 {% endfor %}

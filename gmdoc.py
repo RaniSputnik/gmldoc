@@ -96,6 +96,9 @@ def strip_token(token, code):
 
 # Documents the given project file
 def doc(project_file, outdir):
+	# TODO normalize outdir - remove trailing /
+	# and remove any leading dots and / 
+
 	# Read the contents of the project file
 	print("Reading project file...");
 	project_dir = os.path.dirname(project_file)
@@ -147,7 +150,7 @@ def doc(project_file, outdir):
 		os.makedirs(outdir)
 	for method in project_methods:
 		print("Rendering file %s", method.name)
-		the_html = METHOD_TEMPLATE.render(method=method, all_methods=project_methods)
+		the_html = METHOD_TEMPLATE.render(method=method, all_methods=project_methods, path=outdir)
 		text_file = open(os.path.join(outdir,method.name + '.html'), "w")
 		text_file.write(the_html)
 		text_file.close()
@@ -164,4 +167,4 @@ if not os.path.isfile(TARGET_FILE):
 	die("Project file doesn't exist!")
 
 # Start documenting the given file
-doc(TARGET_FILE, './output')
+doc(TARGET_FILE, 'output')

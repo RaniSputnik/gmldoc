@@ -11,7 +11,7 @@
         <div class="three columns">
             <ul class="links">
                 {% for this_method in all_methods %}
-                <li><a {% if this_method == method %}class="selected"{% endif %} href="/{{ method.name }}.html">
+                <li><a {% if this_method == method %}class="selected"{% endif %} href="{{ path }}/{{ this_method.name }}.html">
                     {{ this_method.name }}
                 </a></li>
                 {% endfor %}

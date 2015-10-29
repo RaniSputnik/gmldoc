@@ -1,4 +1,4 @@
-# GMDoc
+# GMLDoc
 
 ***The missing documentation tool for GameMaker Extensions.***
 

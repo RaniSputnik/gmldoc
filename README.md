@@ -65,6 +65,13 @@ You must have [python 2.x](https://www.python.org/downloads/) installed to use t
 
 I plan to add binaries for the library in the future, for now it should suffice to simply clone this repo.
 
+The theme for the generated pages is written in [SASS](http://sass-lang.com/). To modify the styles, you will need a SASS compiler. Once you have one, compile 'all.scss' to a single css file 'all.css'. Eg. If you are using [sassc](https://github.com/sass/sassc)
+
+```
+cd styles
+sassc all.scss > all.css
+```
+
 ### Usage
 
 Command Line

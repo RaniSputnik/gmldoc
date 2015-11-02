@@ -10,11 +10,11 @@ body {
 }
 
 h1 {
-    background: #33531C;
+    background: $colour-dark-green;
     font-size: 3rem;
     padding: 0.5rem 1rem;
     border-radius: 4px 4px 0 0;
-    border-bottom: 2px solid #72B741;
+    border-bottom: 2px solid $colour-light-green;
 }
 h3 {
     font-size: 2rem;
@@ -66,8 +66,4 @@ th {
 }
 #footer a {
     color: #888;
-}
-pre {
-    background: #333;
-    padding: .5rem 1rem;
-}   
+} 

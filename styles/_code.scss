@@ -1,0 +1,14 @@
+pre {
+    background: $colour-medium-grey;
+    padding: .5rem 1rem;
+
+    .comment {
+    	color: $colour-light-green;
+    }
+    .constant, .keyword {
+    	color: $colour-orange;
+    }
+    .keyword {
+    	font-weight: bold;
+    }
+}

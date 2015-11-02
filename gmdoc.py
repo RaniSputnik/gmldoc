@@ -4,7 +4,7 @@ from jinja2 import Environment, PackageLoader
 JINJA_ENV = Environment(loader=PackageLoader('gmdoc', 'templates'))
 
 # Templates
-METHOD_TEMPLATE = JINJA_ENV.get_template('layout.html')
+METHOD_TEMPLATE = JINJA_ENV.get_template('method.html')
 INDEX_TEMPLATE = JINJA_ENV.get_template('index.html')
 
 # Basic types

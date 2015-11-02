@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+{% block title %}{{ method.name }}{% endblock %}
+{% block description %}{{ method.short_description }}{% endblock description %}
+{% block body %}
+<div class="container">
+    <div class="three columns">
+        <ul class="links">
+            {% for this_method in all_methods %}
+            <li><a {% if this_method == method %}class="selected"{% endif %} href="./{{ this_method.name }}.html">
+                {{ this_method.name }}
+            </a></li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div id="content-wrapper" class="nine columns">
+        <h1>{{ method.name }}</h1>
+        <div id="content">
+            {% if method.short_description is defined %}
+            <h2 id="description">{{ method.short_description }}</h2>
+            {% endif %}
+
+            <h3>Syntax</h3>
+            <pre>{{ method.syntax }}</pre>
+
+            {% if method.params|length > 0 %}
+            <table>
+                <tbody>
+                    <tr>
+                        <th>Argument</th>
+                        <th>Description</th>
+                    </tr>
+                    {% for param in method.params %}
+                    <tr>
+                        <td>{{ param.name }}</td>
+                        <td>{{ param.description }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% endif %}
+
+            {% if method.return_value is defined %}
+            <p><strong>Returns:</strong> {{ method.return_value }}</p>
+            {% endif %}
+
+            <h3>Description</h3>
+            <p>{{ method.description }}</p>
+        </div> <!-- #content -->
+    </div> <!-- #content-wrapper -->
+</div>
+{% endblock %}

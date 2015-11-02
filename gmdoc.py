@@ -5,6 +5,7 @@ JINJA_ENV = Environment(loader=PackageLoader('gmdoc', 'templates'))
 
 # Templates
 METHOD_TEMPLATE = JINJA_ENV.get_template('layout.html')
+INDEX_TEMPLATE = JINJA_ENV.get_template('index.html')
 
 # Basic types
 TYPE_REAL = 'real'
@@ -154,15 +155,24 @@ def doc(project_file, outdir):
 	print(">> Successfully read scripts")
 
 	# Write the HTML files
+	# Creating the output directory if it doesn't exist
+	# Then generated the index.html file
+	# Then finally creating another html for each method
 	if not os.path.exists(outdir):
 		os.makedirs(outdir)
+	index_html = INDEX_TEMPLATE.render({
+		'extension': extension,
+		'all_methods': project_methods,
+	})
+	index_file = open(os.path.join(outdir,'index.html'), 'w')
+	index_file.write(index_html)
+	index_file.close()
 	for method in project_methods:
 		print("Rendering file %s", method.name)
 		render_params = {
 			'extension': extension,
-			'method': method,
 			'all_methods': project_methods,
-			'path': outdir,
+			'method': method,
 			# Uncomment these lines when testing locally
 			# 'stylesheet_url': '../styles/all.css',
 		}

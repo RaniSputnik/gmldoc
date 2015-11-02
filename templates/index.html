@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    <link rel="dns-prefetch" href="//static.gmldoc.com">
+    <link rel="dns-prefetch" href="//gmldoc.com">
+
+    <title>{{ extension.name }}</title>
+    <meta name="description" content="{{ extension.description }}">
+    <meta name="abstract" content="Read documentation of high quality GameMaker extensions.">
+    <meta name="keywords" content="{{ extension.name }}, extension, game maker, documentation, docs, support, gml, game maker language">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="http://static.gmldoc.com/img/favicon.ico" type="image/vnd.microsoft.icon">
+    
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
+    {% if stylesheet_url is defined %}
+    <link href='{{ stylesheet_url }}' rel='stylesheet' type='text/css'>
+    {% else %}
+    <link href='https://storage.googleapis.com/static.gmldoc.com/read/css/all.min.css' rel='stylesheet' type='text/css'>
+    {% endif %}
+</head>
+<body>
+    <div class="container">
+        <ul class="links">
+            {% for this_method in all_methods %}
+            <li><a href="./{{ this_method.name }}.html">
+                {{ this_method.name }}
+            </a></li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div id="footer" class="text-center">
+        {% block footer %}
+        <small>Documentation thanks to <a href="http://gmldoc.com" target="_blank">GML&nbsp;Doc</a>. Want to support the project? Fork us on&nbsp;<a href="https://github.com/RaniSputnik/gmldoc" target="/blank">Github</a></small>
+        {% endblock %}
+    </div>
+</body>
+</html>
